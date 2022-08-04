@@ -1,0 +1,5 @@
+<resources>
+<!--    APP-->
+    <string name="app_name">Covid Cases</string>
+    <string name="hms_api_key">DAEDAPSAef4NI6OIsmoJLoY4M5wcgfmTvTnSr0xEtZn7SYiz90OOGyQ9ZttAM61Al7PvZHakGeHIIYM2ZYyBYUVkgcAr9rnGI8oALA==</string>
+</resources>
