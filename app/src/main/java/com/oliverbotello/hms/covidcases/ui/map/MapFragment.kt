@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
+import androidx.lifecycle.Observer
 import com.huawei.hms.maps.*
 import com.oliverbotello.hms.covidcases.R
 
-class MapFragment : Fragment(), OnMapReadyCallback {
+class MapFragment : Fragment(), OnMapReadyCallback, Observer<Boolean> {
     companion object {
         fun newInstance() = MapFragment()
     }
@@ -39,8 +41,13 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        
+
         viewModel = ViewModelProvider(this).get(MapViewModel::class.java)
+
+        // Set all observers and listeners
+        viewModel.setIsBussyListener(viewLifecycleOwner, this)
+
+        viewModel.start()
     }
 
     /*
@@ -48,5 +55,17 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     * */
     override fun onMapReady(map: HuaweiMap) {
         this.map = map
+    }
+
+    /*
+    * Observer<Boolean>
+    * */
+    /**
+     * Listener to display a loading view
+     *
+     * @param show if is true view will display a loading view
+     **/
+    override fun onChanged(show: Boolean) {
+        this.view?.findViewById<View>(R.id.loadingvw)?.isVisible = show
     }
 }
