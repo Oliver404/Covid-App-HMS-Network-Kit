@@ -7,5 +7,5 @@ data class Country(
     val name: Name,
     val latlng: DoubleArray = doubleArrayOf(0.0, 0.0),
     val population: Int = 0,
-//    val flag: Flag
+    val flags: Flag
 )

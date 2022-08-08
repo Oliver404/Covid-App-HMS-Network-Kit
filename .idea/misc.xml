@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Development/Android/CovidCases/app/src/main/res/drawable/ic_launcher_background.xml" value="0.279" />
         <entry key="..\:/Development/Android/CovidCases/app/src/main/res/drawable/info_window_shape.xml" value="0.187" />
         <entry key="..\:/Development/Android/CovidCases/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Development/Android/CovidCases/app/src/main/res/layout/activity_main_activity.xml" value="0.18854166666666666" />

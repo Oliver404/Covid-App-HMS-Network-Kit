@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -90,8 +91,8 @@ class MapFragment : Fragment(), OnMapReadyCallback, Observer<Array<Country>> {
                 val country = countries[i]
                 val options = MarkerOptions()
                     .position(LatLng(country.latlng[0], country.latlng[1]))
-                    .title(country.name.common)
-                    .snippet(country.name.official)
+                    .title("${country.name.common}|${country.name.official}")
+                    .snippet(country.flags.png)
 
                 map.addMarker(options)
             }
@@ -102,15 +103,18 @@ class MapFragment : Fragment(), OnMapReadyCallback, Observer<Array<Country>> {
         private val mWindow: View = layoutInflater.inflate(R.layout.custom_info_window, null)
 
         override fun getInfoWindow(marker: Marker): View {
+            val names = marker.title.split("|")
             val txtvTitle = mWindow.findViewById<TextView>(R.id.txtvw_common)
             val txtvSnippett = mWindow.findViewById<TextView>(R.id.txtvw_official)
-            txtvTitle.text = marker.title
-            txtvSnippett.text = marker.snippet
+            txtvTitle.text = names[0]
+            txtvSnippett.text = names[1]
+            val flag = mWindow.findViewById<AppCompatImageView>(R.id.imgvw_flag)
             mWindow.findViewById<AppCompatImageView>(R.id.imgvw_chart).isVisible = false
-            mWindow.findViewById<AppCompatImageView>(R.id.indicator).isVisible = true
+            mWindow.findViewById<View>(R.id.indicator).isVisible = true
 
+            Glide.with(mWindow).load(marker.snippet).into(flag)
             viewModel.setCovidListener(viewLifecycleOwner, this)
-            viewModel.getCovidData(marker.title)
+            viewModel.getCovidData(names[0])
 
             return mWindow
         }
