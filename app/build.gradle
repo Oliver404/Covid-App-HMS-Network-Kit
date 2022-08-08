@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.huawei.agconnect'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -60,6 +61,12 @@ dependencies {
     implementation 'com.huawei.agconnect:agconnect-core:1.7.0.300' // Core
     implementation 'com.huawei.hms:maps:6.6.0.300' // Maps
     implementation 'com.huawei.hms:network-embedded:6.0.0.300' // Network
+
+    // Others
+    implementation 'com.squareup.moshi:moshi:1.13.0'
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+    implementation 'com.squareup.moshi:moshi-kotlin:1.13.0'
+    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.13.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

@@ -1,3 +1,3 @@
 package com.oliverbotello.hms.covidcases.utils
 
-const val CONTRIES_API_URL = "https://restcountries.com/v3.1/"
+const val BASE_API_URL = "https://damp-anchorage-87622.herokuapp.com/"

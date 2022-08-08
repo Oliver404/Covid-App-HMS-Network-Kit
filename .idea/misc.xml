@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Development/Android/CovidCases/app/src/main/res/drawable/info_window_shape.xml" value="0.187" />
         <entry key="..\:/Development/Android/CovidCases/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Development/Android/CovidCases/app/src/main/res/layout/activity_main_activity.xml" value="0.18854166666666666" />
+        <entry key="..\:/Development/Android/CovidCases/app/src/main/res/layout/custom_info_window.xml" value="0.72" />
         <entry key="..\:/Development/Android/CovidCases/app/src/main/res/layout/fragment_map.xml" value="0.2" />
         <entry key="..\:/Development/Android/CovidCases/app/src/main/res/xml/network_security_config.xml" value="0.18697916666666667" />
       </map>
